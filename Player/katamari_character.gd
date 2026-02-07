@@ -11,7 +11,7 @@ signal metal_passed
 @export var metal_modulo: int = 1
 
 @export var actual_dialogue: Array[Resource]
-var dia_lab: DialogueLabel
+@onready var dia_lab: DialogueLabel = $DialogueLabel
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass
