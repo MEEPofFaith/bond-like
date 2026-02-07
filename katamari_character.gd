@@ -11,9 +11,11 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	
 	input_dir = Input.get_vector("left", "right", "forward", "backward")
 	if input_dir:
 		direction = (Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	
 		apply_imp = true
 	
 	
