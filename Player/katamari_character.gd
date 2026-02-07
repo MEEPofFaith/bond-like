@@ -43,7 +43,7 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 				dupe = _get_collision_shape_dube(x)
 				
 			#dupe.name += "{num}"
-			#x.reparent(self)
+			x.reparent(self)
 			
 		body.queue_free()
 
