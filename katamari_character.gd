@@ -15,16 +15,13 @@ func _process(delta: float) -> void:
 	input_dir = Input.get_vector("left", "right", "forward", "backward")
 	if input_dir:
 		direction = (Vector3(input_dir.x, 0, input_dir.y)).normalized()
-	
-		apply_imp = true
-	
-	
-func _unhandled_input(event: InputEvent) -> void:
-	pass
-	
-		
-	
+
 func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
-	if apply_imp:
-		apply_central_force(direction * 10)
-		direction = Vector3.ZERO
+	
+	apply_central_force(direction * 10)
+	direction = Vector3.ZERO
+
+
+func _on_area_3d_body_entered(body: Node3D) -> void:
+	if body is RigidBody3D:
+		pass
