@@ -10,8 +10,8 @@ signal metal_passed
 
 @export var metal_modulo: int = 1
 
-@export var actual_dialogue = load("res://TextBox/TestTestDialogue.dialogue")
-@export var dia_lab: DialogueLabel
+@export var actual_dialogue: Array[Resource]
+var dia_lab: DialogueLabel
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass
@@ -41,13 +41,12 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 	amount_of_metal += 1
 	
 	if amount_of_metal % metal_modulo == 0:
-		
 		metal_passed.emit()
 		
 
 
 
 func _on_metal_passed() -> void:
-	var dialogue_line1 = await DialogueManager.get_next_dialogue_line(actual_dialogue, "start")
+	var dialogue_line1 = await DialogueManager.get_next_dialogue_line(actual_dialogue[0], "start")
 	dia_lab.dialogue_line = dialogue_line1
 	dia_lab.type_out()
