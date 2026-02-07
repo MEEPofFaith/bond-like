@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://dvm4gp0kvk3kq"]
+
+[node name="TextLocation" type="CanvasLayer" unique_id=387301634]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=525444608]
+offset_left = 392.0
+offset_top = 494.0
+offset_right = 776.0
+offset_bottom = 577.0
+text = "asdqwdasdfsdfwefvv"
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=969301874]
+z_index = -1
+offset_left = 317.0
+offset_top = 398.0
+offset_right = 665.0
+offset_bottom = 578.0
+color = Color(0, 0, 0, 1)

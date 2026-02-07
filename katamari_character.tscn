@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dranmigfu2481"]
 
 [ext_resource type="Script" uid="uid://bi435nkp55o4r" path="res://katamari_character.gd" id="1_y526u"]
+[ext_resource type="PackedScene" uid="uid://dvm4gp0kvk3kq" path="res://TextBox/TextLocation.tscn" id="2_y526u"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_m78oy"]
 
@@ -24,5 +25,7 @@ monitorable = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1379476863]
 shape = SubResource("SphereShape3D_ne567")
+
+[node name="TextLocation" parent="." unique_id=387301634 instance=ExtResource("2_y526u")]
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
