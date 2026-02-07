@@ -11,11 +11,9 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	
 	input_dir = Input.get_vector("left", "right", "forward", "backward")
 	if input_dir:
 		direction = (Vector3(input_dir.x, 0, input_dir.y)).normalized()
-		#print(direction, " got here")
 		apply_imp = true
 	
 	
@@ -26,6 +24,5 @@ func _unhandled_input(event: InputEvent) -> void:
 	
 func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
 	if apply_imp:
-		print(direction)
 		apply_central_force(direction * 10)
 		direction = Vector3.ZERO

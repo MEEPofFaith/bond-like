@@ -8,6 +8,9 @@
 
 [sub_resource type="BoxMesh" id="BoxMesh_y526u"]
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_ne567"]
+radius = 0.53882575
+
 [node name="KatamariCharacter" type="RigidBody3D" unique_id=982810794]
 script = ExtResource("1_y526u")
 
@@ -20,3 +23,8 @@ shape = SubResource("SphereShape3D_s3khq")
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=1151699036]
 transform = Transform3D(0.42312336, 0, 0, 0, 0.42312336, 0, 0, 0, 0.42312336, 0, 1.0181289, 0)
 mesh = SubResource("BoxMesh_y526u")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1910655814]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1379476863]
+shape = SubResource("SphereShape3D_ne567")
