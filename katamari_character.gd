@@ -6,6 +6,10 @@ var apply_imp: bool = false
 
 var amount_of_metal: int = 0
 
+signal metal_passed
+
+@export var metal_modulo: int = 1
+
 @export var actual_dialogue = load("res://TextBox/TestTestDialogue.dialogue")
 @export var dia_lab: DialogueLabel
 # Called when the node enters the scene tree for the first time.
@@ -13,13 +17,9 @@ func _ready() -> void:
 	pass
 
 
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if not dia_lab.is_typing:
-		var dialogue_line1 = await DialogueManager.get_next_dialogue_line(actual_dialogue, "start")
-		dia_lab.dialogue_line = dialogue_line1
-		
-		dia_lab.type_out()
 	
 	input_dir = Input.get_vector("left", "right", "forward", "backward")
 	if input_dir:
@@ -39,3 +39,15 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 		body.queue_free()
 
 	amount_of_metal += 1
+	
+	if amount_of_metal % metal_modulo == 0:
+		
+		metal_passed.emit()
+		
+
+
+
+func _on_metal_passed() -> void:
+	var dialogue_line1 = await DialogueManager.get_next_dialogue_line(actual_dialogue, "start")
+	dia_lab.dialogue_line = dialogue_line1
+	dia_lab.type_out()
