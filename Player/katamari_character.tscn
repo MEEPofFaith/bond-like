@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://bi435nkp55o4r" path="res://Player/katamari_character.gd" id="1_y526u"]
 [ext_resource type="Resource" uid="uid://dbyqr3vws7ysr" path="res://TextBox/TestTestDialogue.dialogue" id="2_ibhql"]
 [ext_resource type="Script" uid="uid://g32um0mltv5d" path="res://addons/dialogue_manager/dialogue_label.gd" id="2_y526u"]
+[ext_resource type="PackedScene" uid="uid://8ubl7jnfleph" path="res://TextBox/Events/TestEvent.tscn" id="4_nlfrg"]
+[ext_resource type="PackedScene" uid="uid://srly24ne4qbu" path="res://Bondables/SodaCanBondable.tscn" id="5_mvjkl"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_m78oy"]
 
@@ -15,6 +17,7 @@ radius = 0.53882575
 [node name="KatamariCharacter" type="RigidBody3D" unique_id=982810794 node_paths=PackedStringArray("collisionKata")]
 can_sleep = false
 script = ExtResource("1_y526u")
+metal_modulo = 2
 collisionKata = [NodePath("CollisionShape3D2"), NodePath("Area3D/Area3dCollisionBody")]
 actual_dialogue = Array[Resource]([ExtResource("2_ibhql"), null])
 
@@ -39,6 +42,9 @@ offset_bottom = 192.0
 script = ExtResource("2_y526u")
 skip_pause_at_abbreviations = PackedStringArray("Mr", "Mrs", "Ms", "Dr", "etc", "eg", "ex")
 metadata/_custom_type_script = "uid://g32um0mltv5d"
+
+[node name="TestEvent" parent="." unique_id=1593292576 instance=ExtResource("4_nlfrg")]
+object_to_spawn = ExtResource("5_mvjkl")
 
 [connection signal="metal_passed" from="." to="." method="_on_metal_passed"]
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
