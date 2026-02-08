@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://bi435nkp55o4r" path="res://Player/katamari_character.gd" id="1_y526u"]
 [ext_resource type="Resource" uid="uid://dbyqr3vws7ysr" path="res://TextBox/TestTestDialogue.dialogue" id="2_ibhql"]
-[ext_resource type="PackedScene" uid="uid://8ubl7jnfleph" path="res://TextBox/Events/TestEvent.tscn" id="4_nlfrg"]
-[ext_resource type="PackedScene" uid="uid://srly24ne4qbu" path="res://Bondables/SodaCanBondable.tscn" id="5_mvjkl"]
+[ext_resource type="PackedScene" uid="uid://dbeo7ixuqrj4p" path="res://TextBox/Events/MetroEvent.tscn" id="3_nlfrg"]
+[ext_resource type="PackedScene" uid="uid://bsbr3jc0jiym6" path="res://TextBox/Events/OfficerDownEvent.tscn" id="4_mvjkl"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_m78oy"]
 
@@ -18,7 +18,7 @@ can_sleep = false
 script = ExtResource("1_y526u")
 metal_modulo = 2
 collisionKata = [NodePath("CollisionShape3D2"), NodePath("Area3D/Area3dCollisionBody")]
-eventsToDo = [null]
+eventsToDo = [NodePath("MetroDownEvent")]
 actual_dialogue = Array[Resource]([ExtResource("2_ibhql"), null])
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1518709879]
@@ -34,8 +34,9 @@ monitorable = false
 [node name="Area3dCollisionBody" type="CollisionShape3D" parent="Area3D" unique_id=1379476863]
 shape = SubResource("SphereShape3D_ne567")
 
-[node name="TestEvent" parent="." unique_id=1593292576 instance=ExtResource("4_nlfrg")]
-object_to_spawn = ExtResource("5_mvjkl")
+[node name="MetroDownEvent" parent="." unique_id=414863817 instance=ExtResource("3_nlfrg")]
+
+[node name="OfficerDownEvent" parent="." unique_id=588065309 instance=ExtResource("4_mvjkl")]
 
 [connection signal="metal_passed" from="." to="." method="_on_metal_passed"]
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
